@@ -19,11 +19,11 @@ import utils.FileUtils;
 
 public class Questions {
 
-	private static final String QUESTIONS_FILE = "dll3encrypted";
+	// private static final String QUESTIONS_FILE = "questions/dll3encrypted";
 
-	public static Set<Question> getQuestions() throws InvalidKeyException, NoSuchAlgorithmException,
+	public static Set<Question> getQuestions(int block) throws InvalidKeyException, NoSuchAlgorithmException,
 			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-		String questionsStr = FileUtils.readLineByLineJava8(QUESTIONS_FILE).replace("\n", "");
+		String questionsStr = FileUtils.readLineByLineJava8("questions/qll" + block + "encrypted").replace("\n", "");
 
 		questionsStr = EncryptDecryptStringWithDES.decrypt(questionsStr);
 

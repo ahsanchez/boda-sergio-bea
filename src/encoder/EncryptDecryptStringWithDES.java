@@ -21,8 +21,8 @@ public class EncryptDecryptStringWithDES {
 
 	public static void main(String[] args) throws IOException, InvalidKeySpecException, InvalidKeyException,
 			NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-		String encrypted = encrypt(FileUtils.readLineByLineJava8("dll3"));
-		FileUtils.strToFile("dll3encrypted", encrypted);
+		String encrypted = encrypt(FileUtils.readLineByLineJava8("questions/plain/qll1"));
+		FileUtils.strToFile("questions/qll1encrypted", encrypted);
 	}
 
 	public static String encrypt(String str) throws NoSuchAlgorithmException, NoSuchPaddingException,

@@ -4,12 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 import java.util.Set;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import constants.CommonConstants;
+import encoder.Hashing;
 import javazoom.jl.decoder.JavaLayerException;
 import model.MsgAndComments;
 import model.Question;
@@ -18,11 +21,11 @@ import utils.ReproductorMp3;
 import utils.Utils;
 
 public class ScreenPlay {
-	
-	private static final String[] SI = {"si","sí","ye","vale","ok", "clarisimo", "clarísimo", "claro"};
-	private static final String[] NO = {"no","negativo","nada"};
-	private static final String[] BIEN = {"bien","genial","perfect","felices"};
-	private static final String[] MAL = {"mal","regular","no muy bien","nada bien"};
+
+	private static final String[] SI = { "si", "sí", "ye", "vale", "ok", "clarisimo", "clarísimo", "claro" };
+	private static final String[] NO = { "no", "negativo", "nada" };
+	private static final String[] BIEN = { "bien", "genial", "perfect", "felices" };
+	private static final String[] MAL = { "mal", "regular", "no muy bien", "nada bien" };
 
 	public static ReproductorMp3 player2 = new ReproductorMp3();
 
@@ -30,7 +33,7 @@ public class ScreenPlay {
 
 		System.out.println("================================== ADVERTENCIA ==================================");
 		System.out.println("Este juego puede ser adictivo.");
-		System.out.println("El grupo 100M recomienda un uso responsable.");
+		System.out.println("Se recomienda un uso responsable.");
 		System.out.println("No mezclar con bebidas alcohólicas.");
 		System.out.println("ES ABSOLUTAMENTE IMPRESCINDIBLE ACIVAR EL SONIDO DEL ORDENADOR.");
 		System.out.println("================================ FIN ADVERTENCIA =================================");
@@ -53,7 +56,8 @@ public class ScreenPlay {
 		System.out.println("");
 		Utils.writeConsole("Bien. ¿Todo claro?", true, 1);
 		String res = Utils.read().toLowerCase();
-		if (Utils.arrayContainsWord(SI, res)&&(!res.toLowerCase().startsWith("no")) && (!res.toLowerCase().startsWith("nada"))) {
+		if (Utils.arrayContainsWord(SI, res) && (!res.toLowerCase().startsWith("no"))
+				&& (!res.toLowerCase().startsWith("nada"))) {
 			Utils.writeConsole("Chicos listos.", true, 1);
 		} else if (Utils.arrayContainsWord(NO, res)) {
 			Utils.writeConsole("Pues bien empezamos igualmente...", true, 1);
@@ -65,7 +69,8 @@ public class ScreenPlay {
 
 		Utils.writeConsole("¿Habéis activado el sonido del ordenador?", true, 1);
 		res = Utils.read().toLowerCase();
-		if (Utils.arrayContainsWord(SI, res)&&(!res.toLowerCase().startsWith("no")) && (!res.toLowerCase().startsWith("nada"))) {
+		if (Utils.arrayContainsWord(SI, res) && (!res.toLowerCase().startsWith("no"))
+				&& (!res.toLowerCase().startsWith("nada"))) {
 			Utils.writeConsole("¡Genial! Pues...", false, 3);
 		} else if (Utils.arrayContainsWord(NO, res)) {
 			Utils.writeConsole("¿Y a qué estáis esperando? Os doy 5 segundos para hacerlo:", true, 1);
@@ -76,7 +81,7 @@ public class ScreenPlay {
 		}
 	}
 
-	public static void presentation() throws InterruptedException, FileNotFoundException, JavaLayerException {
+	public static int presentation() throws InterruptedException, FileNotFoundException, JavaLayerException {
 
 		Utils.writeConsole(" ¡¡¡Que comience el espectáculo!!!", true, 1);
 
@@ -86,15 +91,16 @@ public class ScreenPlay {
 		Thread.sleep(3000);
 		Utils.insertNewLine(3);
 
-		Utils.writeConsole("¡Hoy tenemos aquí a Mario y Laura!", true, 3);
+		Utils.writeConsole("¡Hoy tenemos aquí a Sergio y Bea!", true, 3);
 		Utils.writeConsole(
-				"Esta pareja se ha casado recientemente y están aquí " + "para conseguir el espigo del grupo 100M.",
+				"Esta pareja se ha casado recientemente y están aquí " + "para conseguir el espigo de sus amigos.",
 				true, 3);
-		Utils.writeConsole("¿Qué tal estáis, Mario y Laura?", true, 0);
+		Utils.writeConsole("¿Qué tal estáis, Sergio y Bea?", true, 0);
 
 		String res = Utils.read();
 		String msg = "";
-		if (Utils.arrayContainsWord(BIEN, res)&&(!res.toLowerCase().startsWith("no")) && (!res.toLowerCase().startsWith("nada"))) {
+		if (Utils.arrayContainsWord(BIEN, res) && (!res.toLowerCase().startsWith("no"))
+				&& (!res.toLowerCase().startsWith("nada"))) {
 			msg = "¿" + Utils.firstToUpper(res) + "? Me alegro. Yo también, gracias.";
 		} else if (Utils.arrayContainsWord(MAL, res)) {
 			msg = "Vaya, siento oír eso, pero... vamos a seguir el juego igual.";
@@ -109,13 +115,21 @@ public class ScreenPlay {
 				"Como ellos ya saben, su espigo ha sido depositado en una caja fuerte con un candado de combinación. \n"
 						+ "El objetivo de este concurso es que consigan esa combinación. "
 						+ "Para ello deberán contestar correctamente una serie de preguntas.",
-				true, 10);
+				true, 6);
 
 		Utils.writeConsole(
-				"Si responden mal a una de ellas, perderán una vida. Y si las pierden todas... tendrán que volver a empezar.",
-				true, 5);
+				"Estas preguntas están agrupadas en distintos bloques. Cada bloque les dará un número. "
+						+ "Cuando hayan superado todos los bloques, tendrán que ordernarlos y formar una contraseña.",
+				true, 7);
 
-		Utils.writeConsole("¿Estáis preparados, Mario y Laura?", true, 0);
+		Utils.writeConsole(
+				"Deberán introducir esta contraseña para obtener la combinación de la caja fuerte y ¡CONSEGUIR SU PREMIO!.",
+				true, 4);
+
+		Utils.writeConsole("Pero ¡ojo!, sólo podrán fallar una respuesta por bloque."
+				+ "Si fallan dos... tendrán que volver a empezar.", true, 5);
+
+		Utils.writeConsole("¿Estáis preparados, Sergio y Bea?", true, 0);
 
 		res = Utils.read();
 		if (Utils.arrayContainsWord(SI, res) || res.toLowerCase().contains("preparad")) {
@@ -126,32 +140,38 @@ public class ScreenPlay {
 			Utils.dontUnderstand();
 		}
 
-		Utils.insertNewLine(1);
-		Utils.wordByWord("El juego comienza... ¡¡YA!!");
 		Utils.insertNewLine(2);
+		int option = showBlockQuestions(true);
 		player1.stop();
-
 		player2 = new ReproductorMp3();
-		player2.play("dll2");
+		return option;
 
 	}
 
-	public static void quiz() throws InterruptedException, FileNotFoundException, JavaLayerException,
+	public static void quiz(int block) throws InterruptedException, FileNotFoundException, JavaLayerException,
 			InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException,
 			BadPaddingException, UnsupportedEncodingException {
-		Set<Question> questions = Questions.getQuestions();
-		for (Question q : questions) {
-			q.makeQuestion();
-			String resp = Utils.read();
-			if (q.checkAnswer(resp)) {
-				System.out.println(MsgAndComments.getRandomMsg(1));
-			} else {
-				System.out.println(MsgAndComments.getRandomMsg(2));
-				ScoreBoard.lives--;
+
+		if (block == CommonConstants.RESOLVER_OPTION) {
+			resolveGame();
+		} else {
+			player2.play("dll2");
+			Set<Question> questions = Questions.getQuestions(block);
+			for (Question q : questions) {
+				q.makeQuestion();
+				String resp = Utils.read();
+				if (q.checkAnswer(resp)) {
+					System.out.println(MsgAndComments.getRandomMsg(1));
+				} else {
+					System.out.println(MsgAndComments.getRandomMsg(2));
+					ScoreBoard.lives--;
+				}
+				Thread.sleep(1000);
+				ScoreBoard.getScoreBoard();
+				Thread.sleep(3000);
+
 			}
-			Thread.sleep(1000);
-			ScoreBoard.getScoreBoard();
-			Thread.sleep(3000);
+			blockResolved(block);
 		}
 	}
 
@@ -179,5 +199,64 @@ public class ScreenPlay {
 		}
 		Utils.writeConsole("¡Enhorabuena por vuestro premio! ¡Vivan los novios!", true, 10);
 		System.exit(-1);
+	}
+
+	private static int showBlockQuestions(boolean first) throws InterruptedException {
+
+		if (first) {
+			Utils.writeConsole("¡Debéis elegir un bloque de preguntas. ¿Qué opción elegís?", true, 1);
+			for (Map.Entry<Integer, String> entry : CommonConstants.QUESTIONS_BLOCKS.entrySet()) {
+				Utils.writeConsole(entry.getKey() + ": " + entry.getValue() + ".", true, 0.5);
+			}
+		}
+		System.out.println("Opción: ");
+		String option = Utils.read();
+		int oNum = 0;
+		try {
+			oNum = Integer.parseInt(option);
+			if (oNum < 0 && oNum >= CommonConstants.QUESTIONS_BLOCKS.size()) {
+				System.out.println("La opción que habéis elegido no existe... Intentádlo de nuevo...");
+				showBlockQuestions(false);
+			} else {
+				if (oNum != CommonConstants.RESOLVER_OPTION) {
+					Utils.writeConsole("¡Estupendo!", true, 1);
+					Utils.writeConsole("Habéis elegido el bloque de preguntas de "
+							+ CommonConstants.QUESTIONS_BLOCKS.get(oNum) + ".", true, 2);
+				}
+				return oNum;
+			}
+
+		} catch (Exception e) {
+			System.out.println("A ver, que es dar a un número. Intentádlo de nuevo...");
+			showBlockQuestions(false);
+		}
+		return oNum;
+
+	}
+
+	private static void resolveGame() throws FileNotFoundException, JavaLayerException, InterruptedException {
+		player2.play("dll3");
+		Utils.writeConsole("¡Atención señoras y señores! Sergio y Bea quieren resolver...", true, 1);
+		Utils.writeConsole("Bien, ¿Cuál es la contraseña?", true, 1);
+		String password = Hashing.hashString(Utils.read());
+		if (password.equals(CommonConstants.PASSWORD)) {
+			combination();
+		} else {
+			player2.stop();
+			ReproductorMp3 playerWrong = new ReproductorMp3();
+			playerWrong.play("dll5");
+			Utils.writeConsole("¡Oh, oh! ¡La respuesta no es correcta!", true, 1);
+			Utils.writeConsole("Tenéis que volver a intentarlo...", true, 1);
+
+		}
+	}
+
+	private static void blockResolved(int block)
+			throws FileNotFoundException, JavaLayerException, InterruptedException {
+		player2.stop();
+		ReproductorMp3 playerWrong = new ReproductorMp3();
+		playerWrong.play("dll6");
+		Utils.wordByWord("Respuesta... ¡¡¡CORRECTA!!");
+		Utils.wordByWord("... ¡¡¡CORRECTA!!");
 	}
 }
