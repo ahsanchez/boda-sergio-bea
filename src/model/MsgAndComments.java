@@ -3,9 +3,12 @@ package model;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MsgAndComments {
-	private static final String[] RIGHT_ANSWERS = { "¡Respuesta correcta!", "¡Correcto!", "¡Maravilloso!", "¡Genial! ¡Sois unos cracks!", "¡Bien! ¡Qué memoria!", "¡Habéis acertado!", "¡Muy bien! ¡Se os da bien esto!" };
+	private static final String[] RIGHT_ANSWERS = { "¡Respuesta correcta!", "¡Correcto!", "¡Maravilloso!",
+			"¡Genial! ¡Sois unos cracks!", "¡Bien! ¡Qué memoria!", "¡Habéis acertado!",
+			"¡Muy bien! ¡Se os da bien esto!" };
 	private static final String[] WRONG_ANSWERS = { "¡Respuesta incorrecta!", "¡Oh, oh.. habéis fallado!",
-			"¡No! ¿Cómo habéis podido fallar eso?", "¡Fallo! ¡Si era super fácil!", "¡Errooooorrrrr!", "¡Ouch! ¡Una vida menos!" };
+			"¡No! ¿Cómo habéis podido fallar eso?", "¡Fallo! ¡Si era super fácil!", "¡Errooooorrrrr!",
+			"¡Ouch! ¡Una vida menos!" };
 
 	public static final String ENHORABUENA = "\r\n"
 			+ " _  _______         _                           _                                  _ \r\n"
@@ -16,44 +19,9 @@ public class MsgAndComments {
 			+ "|_||_______)|_| |_||_| |_| \\___/ |_|    \\_____||____/ |____/ |_____)|_| |_|\\_____||_|\r\n"
 			+ "                                                                                     \r\n";
 
-	public static final String RIGHT_COMBINATION = "\r\n"
-			+ " .----------------.  .----------------.  .----------------. \r\n"
-			+ "| .--------------. || .--------------. || .--------------. |\r\n"
-			+ "| |    ______    | || |   _______    | || |     ____     | |\r\n"
-			+ "| |  .' ____ \\   | || |  |  _____|   | || |   .' __ '.   | |\r\n"
-			+ "| |  | |____\\_|  | || |  | |____     | || |   | (__) |   | |\r\n"
-			+ "| |  | '____`'.  | || |  '_.____''.  | || |   .`____'.   | |\r\n"
-			+ "| |  | (____) |  | || |  | \\____) |  | || |  | (____) |  | |\r\n"
-			+ "| |  '.______.'  | || |   \\______.'  | || |  `.______.'  | |\r\n"
-			+ "| |              | || |              | || |              | |\r\n"
-			+ "| '--------------' || '--------------' || '--------------' |\r\n"
-			+ " '----------------'  '----------------'  '----------------' \r\n";
-
-	public static final String COMBINATION_DISORDER = "\r\n"
-			+ " .----------------.  .----------------.  .----------------. \r\n"
-			+ "| .--------------. || .--------------. || .--------------. |\r\n"
-			+ "| |   _______    | || |    ______    | || |     ____     | |\r\n"
-			+ "| |  |  _____|   | || |  .' ____ \\   | || |   .' __ '.   | |\r\n"
-			+ "| |  | |____     | || |  | |____\\_|  | || |   | (__) |   | |\r\n"
-			+ "| |  '_.____''.  | || |  | '____`'.  | || |   .`____'.   | |\r\n"
-			+ "| |  | \\____) |  | || |  | (____) |  | || |  | (____) |  | |\r\n"
-			+ "| |   \\______.'  | || |  '.______.'  | || |  `.______.'  | |\r\n"
-			+ "| |              | || |              | || |              | |\r\n"
-			+ "| '--------------' || '--------------' || '--------------' |\r\n"
-			+ " '----------------'  '----------------'  '----------------' \r\n";
-
-	public static final String COMBINATION_MISSING_1 = "\r\n"
-			+ " .----------------.  .----------------.  .----------------. \r\n"
-			+ "| .--------------. || .--------------. || .--------------. |\r\n"
-			+ "| |    ______    | || |   _______    | || |    ______    | |\r\n"
-			+ "| |  .' ____ \\   | || |  |  _____|   | || |   / _ __ `.  | |\r\n"
-			+ "| |  | |____\\_|  | || |  | |____     | || |  |_/____) |  | |\r\n"
-			+ "| |  | '____`'.  | || |  '_.____''.  | || |    /  ___.'  | |\r\n"
-			+ "| |  | (____) |  | || |  | \\____) |  | || |    |_|       | |\r\n"
-			+ "| |  '.______.'  | || |   \\______.'  | || |    (_)       | |\r\n"
-			+ "| |              | || |              | || |              | |\r\n"
-			+ "| '--------------' || '--------------' || '--------------' |\r\n"
-			+ " '----------------'  '----------------'  '----------------' \r\n";
+	public static final String RIGHT_COMBINATION = "\r\n" + "  _____   ____   ______ \r\n"
+			+ " / ___ \\ / __ \\ / __   |\r\n" + "( (   ) | (__) ) | //| |\r\n" + " > > < < \\__  /| |// | |\r\n"
+			+ "( (___) )  / / |  /__| |\r\n" + " \\_____/  /_/   \\_____/ \r\n" + "                        \r\n" + "";
 
 	public static String getRandomMsg(int type) {
 		if (type == 1) {

@@ -34,7 +34,7 @@ public class Questions {
 			String[] answers = new String[aux.length - 2];
 			int j = 0;
 			for (int i = 2; i < aux.length; i++) {
-				answers[j] = aux[i];
+				answers[j] = aux[i].replace(",", "");
 				j++;
 			}
 			questionList.add(new Question(Integer.parseInt(aux[0]), aux[1], answers));

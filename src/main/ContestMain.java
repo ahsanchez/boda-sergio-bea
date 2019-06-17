@@ -9,13 +9,13 @@ public class ContestMain {
 
 	public static void main(String[] args) throws FileNotFoundException, JavaLayerException, InterruptedException {
 		try {
+			ScreenPlay.init();
 			// ScreenPlay.advertisment();
 			// ScreenPlay.rules();
 			// ScreenPlay.previousQuestions();
 			// int option = ScreenPlay.presentation();
-			int option = 1;
-			ScreenPlay.quiz(option);
-			// ScreenPlay.combination();
+			ScreenPlay.quiz(12);
+			ScreenPlay.combination();
 		} catch (Exception e) {
 			System.out.println("¡Ups! Algo ha ido mal... por favor inténtalo de nuevo.");
 			e.printStackTrace();

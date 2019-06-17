@@ -11,13 +11,7 @@ import utils.ReproductorMp3;
 
 public class ScoreBoard {
 
-	public static int lives = 3;
-
-	private static final String THREE = "\r\n" + " +-++-++-+\r\n" + " |O||O||O|\r\n" + " +-++-++-+\r\n";
-	private static final String TWO = "\r\n" + " +-++-++-+\r\n" + " |X||O||O|\r\n" + " +-++-++-+\r\n";
-	private static final String ONE = "\r\n" + " +-++-++-+\r\n" + " |X||X||O|\r\n" + " +-++-++-+\r\n";
-
-	static final String ZERO = "\r\n" + " +-++-++-+\r\n" + " |X||X||X|\r\n" + " +-++-++-+\r\n";
+	public static int lives = 2;
 
 	private static String GAME_OVER = "\r\n"
 			+ "               ('-.     _   .-')       ('-.                           (`-.      ('-.  _  .-')   \r\n"
@@ -30,24 +24,28 @@ public class ScoreBoard {
 			+ " |  '--'  |   |  | |  | |  |   |  |  |  `---.         `'  '-'  '    \\   /     |  `---.|  |\\  \\  \r\n"
 			+ "  `------'    `--' `--' `--'   `--'  `------'           `-----'      `-'      `------'`--' '--' \r\n";
 
+	public static final String _0 = " \r\n" + "  ______ \r\n" + " / __   |  /` \\/ `\\\r\n" + "| | //| |  \\      /\r\n"
+			+ "| |// | |   '.  .'\r\n" + " \\_____/      \\/\r\n" + "         ";
+	public static final String _1 = "\r\n" + "  __ \r\n" + " /  |  /` \\/ `\\\r\n" + "/_/ |  \\      /\r\n"
+			+ "  | |   '.  .'\r\n" + "  |_|     \\/\r\n" + "";
+
+	public static final String HEART = "  ,d88b.d88b,\r\n" + "  88888888888\r\n" + "  `Y8888888Y'\r\n"
+			+ "    `Y888Y'\r\n" + "      `Y'";
+
 	private static final Map<Integer, String> asciiArt;
 	static {
 		Map<Integer, String> aMap = new HashMap<>();
-		aMap.put(0, ZERO);
-		aMap.put(1, ONE);
-		aMap.put(2, TWO);
-		aMap.put(3, THREE);
+		aMap.put(2, _1);
+		aMap.put(1, "");
 		asciiArt = Collections.unmodifiableMap(aMap);
 	}
 
 	public static void getScoreBoard() throws FileNotFoundException, JavaLayerException, InterruptedException {
-
-		if (lives > 1)
-			System.out.println(asciiArt.get(lives) + "Os quedan " + lives + " vidas.");
-		else
-			System.out.println(asciiArt.get(lives) + "Os queda " + lives + " vida.");
-
-		if (lives == 0) {
+		if (lives == 2)
+			System.out.println(asciiArt.get(lives) + "Tenéis 1 vida.");
+		else if (lives == 1)
+			System.out.println(asciiArt.get(lives) + "Ya no tenéis vidas.");
+		else if (lives == 0) {
 			System.out.println(GAME_OVER);
 			ScreenPlay.player2.stop();
 			ReproductorMp3 player3 = new ReproductorMp3();

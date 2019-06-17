@@ -1,6 +1,11 @@
 package utils;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import constants.CommonConstants;
+import javazoom.jl.decoder.JavaLayerException;
+import scenario.ScreenPlay;
 
 public class Utils {
 
@@ -13,9 +18,15 @@ public class Utils {
 	}
 
 	@SuppressWarnings("resource")
-	public static String read() {
+	public static String read() throws FileNotFoundException, JavaLayerException, InterruptedException {
 		Scanner keyboard = new Scanner(System.in);
-		return keyboard.nextLine();
+		String read = keyboard.nextLine();
+		if (read.toLowerCase().equals(CommonConstants.RESOLVE.toLowerCase())) {
+			ScreenPlay.resolveGame();
+			return "";
+		} else {
+			return read;
+		}
 	}
 
 	public static String firstToUpper(String str) {
@@ -52,14 +63,14 @@ public class Utils {
 			Utils.writeConsole(word, true, 1);
 		}
 	}
-	
+
 	public static boolean arrayContainsWord(String[] list, String word) {
-		boolean res=false;
+		boolean res = false;
 		String wordLowerCase = word.toLowerCase();
-		for(int i=0; i < list.length; i++) {
-			if(wordLowerCase.contains(list[i])) {
-				res=true;
-				i=list.length;
+		for (int i = 0; i < list.length; i++) {
+			if (wordLowerCase.contains(list[i])) {
+				res = true;
+				i = list.length;
 			}
 		}
 		return res;

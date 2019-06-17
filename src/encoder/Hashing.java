@@ -27,8 +27,4 @@ public class Hashing {
 		return generatedPassword;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(hashString("0625"));
-	}
-
 }
