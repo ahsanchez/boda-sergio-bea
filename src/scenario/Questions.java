@@ -19,8 +19,6 @@ import utils.FileUtils;
 
 public class Questions {
 
-	// private static final String QUESTIONS_FILE = "questions/dll3encrypted";
-
 	public static Set<Question> getQuestions(int block) throws InvalidKeyException, NoSuchAlgorithmException,
 			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
 		String questionsStr = FileUtils.readLineByLineJava8("questions/qll" + block + "encrypted").replace("\n", "");
