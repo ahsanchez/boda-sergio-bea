@@ -108,68 +108,69 @@ public class ScreenPlay {
 
 	public static int presentation() throws InterruptedException, FileNotFoundException, JavaLayerException {
 
-//		Utils.writeConsole(" ¡¡¡Que comience el espectáculo!!!", true, 1);
-//
-//		player1 = new ReproductorMp3();
-//		player1.play("dll1");
-//
-//		Thread.sleep(3000);
-//		Utils.insertNewLine(3);
-//
-//		Utils.writeConsole("¡Hoy tenemos aquí a Sergio y Bea!", true, 3);
-//		Utils.writeConsole(
-//				"Esta pareja se ha casado recientemente y están aquí " + "para conseguir el espigo de sus amigos.",
-//				true, 3);
-//		Utils.writeConsole("¿Qué tal estáis, Sergio y Bea?", true, 0);
-//
-//		String res = Utils.read();
-//		String msg = "";
-//		if (Utils.arrayContainsWord(BIEN, res) && (!res.toLowerCase().startsWith("no"))
-//				&& (!res.toLowerCase().startsWith("nada"))) {
-//			msg = "¿" + Utils.firstToUpper(res) + "? Me alegro. Yo también, gracias.";
-//		} else if (Utils.arrayContainsWord(MAL, res)) {
-//			msg = "Vaya, siento oír eso, pero... vamos a seguir el juego igual.";
-//		} else if (res.contains("nervios")) {
-//			msg = "¡No estéis nerviosos! Estamos aquí para divertirnos.";
-//		} else {
-//			Utils.dontUnderstand();
-//		}
-//		Utils.writeConsole(msg, true, 1.5);
-//
-//		Utils.writeConsole(
-//				"Como ellos ya saben, su espigo ha sido depositado en una caja fuerte con un candado de combinación. \n"
-//						+ "El objetivo de este concurso es que consigan esa combinación. "
-//						+ "Para ello deberán contestar correctamente una serie de preguntas.",
-//				true, 6);
-//
-//		Utils.writeConsole(
-//				"Estas preguntas están agrupadas en distintos bloques. Cada bloque les dará un número. "
-//						+ "Cuando hayan superado todos los bloques, tendrán que ordernarlos y formar una contraseña.",
-//				true, 7);
-//
-//		Utils.writeConsole(
-//				"Deberán introducir dicha contraseña para obtener la combinación de la caja fuerte y ¡CONSEGUIR SU PREMIO!",
-//				true, 4);
-//
-//		Utils.writeConsole("Pero ¡ojo!, sólo podrán fallar una respuesta por bloque."
-//				+ " Si fallan dos... tendrán que volver a empezar.", true, 5);
-//
-//		Utils.writeConsole(
-//				"Podéis interrumpirme en cualquier momento para decirme la constraseña. Sólo tenéis que decirme: QUEREMOS RESOLVER.",
-//				true, 5);
-//
-//		Utils.writeConsole("¿Estáis preparados, Sergio y Bea?", true, 0);
-//
-//		res = Utils.read();
-//		if (Utils.arrayContainsWord(SI, res) || res.toLowerCase().contains("preparad")) {
-//			Utils.writeConsole("¡Eso es lo que quería oír. Allá vamos!", true, 5);
-//		} else if (Utils.arrayContainsWord(NO, res)) {
-//			Utils.writeConsole("Mala suerte porque...", true, 5);
-//		} else {
-//			Utils.dontUnderstand();
-//		}
-//
-//		Utils.insertNewLine(2);
+		Utils.writeConsole(" ¡¡¡Que comience el espectáculo!!!", true, 1);
+
+		player1 = new ReproductorMp3();
+		player1.play("dll1");
+
+		Thread.sleep(3000);
+		Utils.insertNewLine(3);
+
+		Utils.writeConsole("¡Hoy tenemos aquí a Sergio y Bea!", true, 3);
+		Utils.writeConsole(
+				"Esta pareja se ha casado recientemente y están aquí " + "para conseguir el espigo de sus amigos.",
+				true, 3);
+		Utils.writeConsole("¿Qué tal estáis, Sergio y Bea?", true, 0);
+
+		String res = Utils.read();
+		String msg = "";
+		if (Utils.arrayContainsWord(BIEN, res) && (!res.toLowerCase().startsWith("no"))
+				&& (!res.toLowerCase().startsWith("nada"))) {
+			msg = "¿" + Utils.firstToUpper(res) + "? Me alegro. Yo también, gracias.";
+		} else if (Utils.arrayContainsWord(MAL, res)) {
+			msg = "Vaya, siento oír eso, pero... vamos a seguir el juego igual.";
+		} else if (res.contains("nervios")) {
+			msg = "¡No estéis nerviosos! Estamos aquí para divertirnos.";
+		} else {
+			Utils.dontUnderstand();
+		}
+		Utils.writeConsole(msg, true, 1.5);
+
+		Utils.writeConsole(
+				"Como ellos ya saben, su espigo ha sido depositado en una caja fuerte con un candado de combinación. \n"
+						+ "El objetivo de este concurso es que consigan esa combinación. "
+						+ "Para ello, deberán contestar correctamente una serie de preguntas.",
+				true, 6);
+
+		Utils.writeConsole(
+				"Estas preguntas están agrupadas en distintos bloques. Cada bloque les dará un número y el orden del mismo dentro de una contraseña. "
+						+ "\nCuando hayan superado todos los bloques, tendrán que ordernarlos y formar la contraseña "
+						+ "correcta que resuelve el juego y les da la combinación de la caja fuerte.",
+				true, 7);
+
+		Utils.writeConsole(
+				"Deberán introducir dicha contraseña para obtener la combinación de la caja fuerte y ¡CONSEGUIR SU PREMIO!",
+				true, 4);
+
+		Utils.writeConsole("Pero ¡ojo!, sólo podrán fallar una respuesta por bloque."
+				+ " Si fallan dos... tendrán que volver a empezar.", true, 5);
+
+		Utils.writeConsole(
+				"Podéis interrumpirme en cualquier momento para decirme la constraseña. Sólo tenéis que decirme: QUEREMOS RESOLVER.",
+				true, 5);
+
+		Utils.writeConsole("¿Estáis preparados, Sergio y Bea?", true, 0);
+
+		res = Utils.read();
+		if (Utils.arrayContainsWord(SI, res) || res.toLowerCase().contains("preparad")) {
+			Utils.writeConsole("¡Eso es lo que quería oír. Allá vamos!", true, 5);
+		} else if (Utils.arrayContainsWord(NO, res)) {
+			Utils.writeConsole("Mala suerte porque...", true, 5);
+		} else {
+			Utils.dontUnderstand();
+		}
+
+		Utils.insertNewLine(2);
 		int option = showBlockQuestions(true);
 		player1.stop();
 		player2 = new ReproductorMp3();
@@ -281,10 +282,10 @@ public class ScreenPlay {
 					"¡Oh! Pero habéis fallado una pregunta... eso significa que os vamos a dar el número que se esconde tras\n"
 							+ "este bloque de preguntas, pero no vais a saber el orden que le corresponde en la contraseña.",
 					true, 5);
-			Utils.writeConsole("El número de este bloque es: " + pwdFraction.getNum() + ".", true, 1);
+			Utils.writeConsole("El número que escondía este bloque es el " + pwdFraction.getNum() + ".", true, 1);
 		} else {
-			Utils.writeConsole("El número de este bloque es " + pwdFraction.getNum() + " y está en la posición "
-					+ pwdFraction.getOrder() + ".", true, 1);
+			Utils.writeConsole("El número que escondía este bloque es el " + pwdFraction.getNum()
+					+ " y está en la posición " + pwdFraction.getOrder() + ".", true, 1);
 		}
 		Utils.writeConsole(
 				"Anotad el número en un papel, lo necesitaréis para resolver. Iniciad de nuevo el juego para continuar.",
